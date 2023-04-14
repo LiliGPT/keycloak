@@ -41,6 +41,12 @@ http://localhost:28080
 1. Open "Run and Debug" panel
 2. Select `Stop: Keycloak` in the dropdown
 
+You can also run this command from your terminal:
+
+```sh
+bash devops/scripts/stop.sh
+```
+
 ## Uninstalling
 
 If you are currently running the project, stop it first.
@@ -56,3 +62,8 @@ First uninstall from the step above.
 You can override default environment variables by creating a `.env` file in the root of the project.
 
 You can use the `.env.example` file as a template.
+
+## Import / Export
+
+We still do not have a custom way to import/export realms, 
+but you can use the default way (in the UI of Keycloak Admin).

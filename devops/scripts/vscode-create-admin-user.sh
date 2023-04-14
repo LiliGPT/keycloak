@@ -11,7 +11,7 @@ main() {
   "$PROJECT_ROOT/devops/scripts/run.sh"
   # wait for keycloak to start
   echo "Waiting for keycloak..."
-  sleep 20
+  sleep 5
   # create admin user
   "$PROJECT_ROOT/devops/scripts/create-admin-user.sh"
   # stop the container
