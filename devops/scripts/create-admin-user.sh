@@ -8,10 +8,12 @@ setupCommand() {
 
 main() {
   # create admin user
+  echo "Creating admin user..."
   docker exec -it "$MAIN_CONTAINER_NAME" \
     /opt/jboss/keycloak/bin/add-user-keycloak.sh \
-    -u admin \
-    -p admin
+    -u "${KEYCLOAK_ADMIN_USER}" \
+    -p "${KEYCLOAK_ADMIN_PASSWORD}"
+  sleep 5
 }
 
 ( setupCommand; main )

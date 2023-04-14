@@ -7,10 +7,12 @@ setupCommand() {
 }
 
 main() {
+  # start the container
+  "$PROJECT_ROOT/devops/scripts/run.sh"
   # show logs
-  docker logs --tail 100 "$MAIN_CONTAINER_NAME" -f
+  "$PROJECT_ROOT/devops/scripts/logs.sh"
+  # stop the container (pressing Ctrl/Cmd+C)
   "$PROJECT_ROOT/devops/scripts/stop.sh"
 }
 
-setupCommand
-main
+( setupCommand; main )

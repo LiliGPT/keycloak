@@ -7,12 +7,14 @@ setupCommand() {
 }
 
 main() {
+  # start the container
   "$PROJECT_ROOT/devops/scripts/run.sh"
+  # wait for keycloak to start
   echo "Waiting for keycloak..."
-  sleep 10
-  echo "Creating admin user..."
+  sleep 20
+  # create admin user
   "$PROJECT_ROOT/devops/scripts/create-admin-user.sh"
-  sleep 5
+  # stop the container
   echo "Stopping keycloak..."
   "$PROJECT_ROOT/devops/scripts/stop.sh"
 }

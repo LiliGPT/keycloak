@@ -14,12 +14,11 @@ services:
       DB_USER: keycloak
       DB_PASSWORD: keycloak
     ports:
-      - "${KEYCLOAK_EXPOSE_PORT}:8080"
-      - "${KEYCLOAK_EXPOSE_PORT_SSL}:8443"
-      - "${KEYCLOAK_EXPOSE_PORT_WFLY}:9990"
-    # volumes:
-    #   # - liligpt_keycloak_data:/opt/jboss/keycloak/standalone/data
-    #   # - ../../keycloak/configuration:/opt/jboss/keycloak/standalone/configuration
+      - "${DOCKER_EXPOSE_PORT_KEYCLOAK_HTTP}:8080"
+      - "${DOCKER_EXPOSE_PORT_KEYCLOAK_HTTPS}:8443"
+      - "${DOCKER_EXPOSE_PORT_KEYCLOAK_WFLY}:9990"
+    volumes:
+      - liligpt_keycloak_data:/opt/jboss/keycloak/standalone
     networks:
       - liligpt
 
@@ -27,20 +26,18 @@ services:
     image: postgres:13.2
     restart: unless-stopped
     container_name: liligpt_keycloak_db
-    # ports:
-    #   - "${DB_EXPOSE_PORT}:5432"
     environment:
       - POSTGRES_DB=keycloak
       - POSTGRES_USER=keycloak
       - POSTGRES_PASSWORD=keycloak
-    # volumes:
-    #   - liligpt_keycloak_db:/var/lib/postgresql/data
+    volumes:
+      - liligpt_keycloak_db:/var/lib/postgresql/data
     networks:
       - liligpt
 
-# volumes:
-#   # liligpt_keycloak_data:
-#   liligpt_keycloak_db:
+volumes:
+  liligpt_keycloak_data:
+  liligpt_keycloak_db:
 
 
 networks:

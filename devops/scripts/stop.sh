@@ -11,5 +11,4 @@ main() {
   docker compose -f "$DOCKER_COMPOSE_FILE" stop
 }
 
-setupCommand
-main
+( setupCommand; main )

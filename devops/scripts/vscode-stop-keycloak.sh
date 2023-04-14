@@ -7,10 +7,8 @@ setupCommand() {
 }
 
 main() {
-  # restart keycloak
-  docker compose -f "$DOCKER_COMPOSE_FILE" \
-    up "$MAIN_CONTAINER_SERVICE_NAME" \
-    restart "$MAIN_CONTAINER_SERVICE_NAME" -d
+  # stop the container
+  "$PROJECT_ROOT/devops/scripts/stop.sh"
 }
 
 ( setupCommand; main )

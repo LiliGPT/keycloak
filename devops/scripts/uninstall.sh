@@ -8,8 +8,8 @@ setupCommand() {
 
 main() {
   # uninstall
-  docker compose -f "$DOCKER_COMPOSE_FILE" down -v --remove-orphans
+  docker compose -f "$DOCKER_COMPOSE_FILE" down \
+    -v --remove-orphans
 }
 
-setupCommand
-main
+( setupCommand; main )

@@ -8,8 +8,9 @@ setupCommand() {
 
 main() {
   # show logs
-  docker logs --tail 100 "$MAIN_CONTAINER_NAME" -f
+  docker logs \
+    --tail 100 \
+    "$MAIN_CONTAINER_NAME" -f
 }
 
-setupCommand
-main
+( setupCommand; main )

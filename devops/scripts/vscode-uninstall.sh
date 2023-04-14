@@ -7,10 +7,9 @@ setupCommand() {
 }
 
 main() {
-  # restart keycloak
-  docker compose -f "$DOCKER_COMPOSE_FILE" \
-    up "$MAIN_CONTAINER_SERVICE_NAME" \
-    restart "$MAIN_CONTAINER_SERVICE_NAME" -d
+  # complete uninstall
+  echo "Uninstalling..."
+  "$PROJECT_ROOT/devops/scripts/uninstall.sh"
 }
 
 ( setupCommand; main )

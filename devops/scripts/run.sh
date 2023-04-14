@@ -10,8 +10,9 @@ main() {
   # start database
   docker compose -f "$DOCKER_COMPOSE_FILE" up db -d
   # start keycloak
-  docker compose -f "$DOCKER_COMPOSE_FILE" up "$MAIN_CONTAINER_SERVICE_NAME" --force-recreate -d
+  docker compose -f "$DOCKER_COMPOSE_FILE" up \
+    "$MAIN_CONTAINER_SERVICE_NAME" \
+    --force-recreate -d
 }
 
-setupCommand
-main
+( setupCommand; main )

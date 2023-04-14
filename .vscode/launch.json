@@ -1,26 +1,53 @@
 {
   "version": "0.2.0",
   "configurations": [
-    // run this once
+    // **Install**
+    // run this once to create the admin user for keycloak
+    // you should only run this if the admin user
+    // is not already created
     {
       "name": "Install: Create admin user",
       "type": "f5anything",
       "request": "launch",
       "command": "./devops/scripts/vscode-create-admin-user.sh",
-      "terminalName": "Keycloak admin user",
+      "terminalName": "keycloak-docker",
       "terminalIndex": -1,
       "showTerminal": true,
     },
+    // **Start**
     // run this everytime
+    // after you have created the admin user
     {
-      "name": "Start keycloak",
+      "name": "Start: Keycloak",
       "type": "f5anything",
       "request": "launch",
-      "command": "./devops/scripts/vscode-run.sh",
-      "terminalName": "Keycloak",
+      "command": "./devops/scripts/vscode-start-keycloak.sh",
+      "terminalName": "keycloak-docker",
       "terminalIndex": -1,
       "showTerminal": true,
-      "preLaunchTask": "docker:start",
+    },
+    // **Stop**
+    // Run this to stop keycloak
+    {
+      "name": "Stop: Keycloak",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "./devops/scripts/vscode-stop-keycloak.sh",
+      "terminalName": "keycloak-docker",
+      "terminalIndex": -1,
+      "showTerminal": true,
+    },
+    // **Uninstall**
+    // You can run this whenever you want
+    // It will remove the containers and volumes
+    {
+      "name": "Uninstall: Complete uninstall",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "./devops/scripts/vscode-uninstall.sh",
+      "terminalName": "keycloak-docker",
+      "terminalIndex": -1,
+      "showTerminal": true,
     },
   ],
 }
