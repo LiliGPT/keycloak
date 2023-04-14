@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker:start",
+      "command": "./devops/scripts/run.sh",
+      "type": "shell",
+    },
+    {
+      "label": "docker:stop",
+      "command": "./devops/scripts/uninstall.sh",
+      "type": "shell",
+    },
+  ],
+}

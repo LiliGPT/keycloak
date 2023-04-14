@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // run this once
+    {
+      "name": "Install: Create admin user",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "./devops/scripts/vscode-create-admin-user.sh",
+      "terminalName": "Keycloak admin user",
+      "terminalIndex": -1,
+      "showTerminal": true,
+    },
+    // run this everytime
+    {
+      "name": "Start keycloak",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "./devops/scripts/vscode-run.sh",
+      "terminalName": "Keycloak",
+      "terminalIndex": -1,
+      "showTerminal": true,
+      "preLaunchTask": "docker:start",
+    },
+  ],
+}
